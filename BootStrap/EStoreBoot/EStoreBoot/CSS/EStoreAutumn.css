@@ -1,0 +1,60 @@
+﻿body {
+    font-family: Arial;
+    font-size: 12pt;
+}
+
+#ebanner {
+    font-family: Tahoma;
+    font-size: 26pt;
+    text-align: center;
+    color: #ffffa0; /* light yellow */
+    background-color: #800000;
+}
+
+.pageHeading {
+    font-size: 16pt;
+    font-family: Tahoma;
+    color: red;
+    background-color: #ffff70;
+    text-align: center;
+}
+
+.mainButton {
+    color: yellow;
+    background-color: red;
+}
+
+.searchBar {
+    background-color: yellow;
+}
+
+td.nav {
+    background-color: #ffffa0;
+    padding-right: 10px;
+}
+
+td.nav:hover {
+    background-color: lightgreen;
+}
+
+#custdata {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+#custdata th, #custdata td {
+    border: 1px solid red;
+    padding: 3px;
+}
+
+#custdata tr:nth-child(even) {
+    background-color: #ffffa0;
+}
+#custdata tr:hover {
+    background-color: orange;
+}
+
+#custdata th {
+    background-color: #800000;
+    color: yellow;
+}
