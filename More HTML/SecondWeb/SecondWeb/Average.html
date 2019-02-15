@@ -1,0 +1,55 @@
+﻿<!-- Clientsc13J.htm -->
+<html>
+<head>
+    <title> Client side scripting Javascript - Writing your own Functions </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function Find_av(v1, v2, v3) {
+            // A simple function to be find the minimum of three numbers
+            var ave;
+            ave = ((v1 + v2 + v3) / 3).toFixed(2);
+            
+            return ave;
+        }
+        function cmdAve_OnClick() { //Event handler for the Calculate Minimum Button
+            var num1, num2, num3;
+            num1 = parseInt($("#txtV1").val());
+            num2 = parseInt($("#txtV2").val());
+            num3 = parseInt($("#txtV3").val());
+            var Ave;
+            Ave = Find_av(num1, num2, num3);
+            alert("Average of Three numbers = " + Ave)
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Javascript Client Side Scripting</h2>
+    <h3 style="text-align:center">
+        Writing Your own Functions - Finding
+        Average
+    </h3>
+    <pre>
+ Enter some numbers in the three text boxes, then Click on the
+ "Calculate Min" Button to Find the average of the three numbers entered:
+    <form>
+ Enter First Number : <input id="txtV1">
+
+
+
+ Enter Second Number : <input id="txtV2">
+
+
+
+ Enter Third Number : <input id="txtV3">
+
+
+
+    <input type="button" value="Calculate Average" onClick="cmdAve_OnClick();">
+
+
+
+ </form>
+ </pre>
+</body>
+</html>

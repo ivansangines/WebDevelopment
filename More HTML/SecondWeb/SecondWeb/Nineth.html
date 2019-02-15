@@ -1,0 +1,25 @@
+﻿<!-- Clientsc9J.htm -->
+<html>
+<head>
+    <title>Client side scripting - Image Type Submit Button </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+
+        function myimgClick() {
+            alert(" Image Type Button Attributes = " + "\n" +
+                "Source File = " + $("#imgLaptop").attr("src") + "\n" +
+                "Name = " + $("#imgLaptop").attr("alt"));
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">An Image Type SUBMIT Button</h3>
+<pre>
+ Click on the Image Button Below to Find its Properties:
+
+    <input type="image" alt="Dell Laptop" id="imgLaptop" width="75" height="75" src="laptop.jpg" onclick="myimgClick()">
+</pre>
+</body>
+</html>

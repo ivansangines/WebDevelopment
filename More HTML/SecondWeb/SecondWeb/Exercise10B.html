@@ -1,0 +1,62 @@
+﻿<!-- clientsc12j.htm -->
+<html>
+<head>
+    <title> Adder with Data Validation - Use of Functions </title>
+
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        //--------------- Validate() --------------------------
+        function Validate(val, position) {
+            res = ""
+            if (!isNaN(val))
+                res = parseFloat(val)
+            else {
+                alert("You must enter a Number in box" + position);
+                res = "";
+                if (position == 1)
+                    $("#val1").val("");
+                else
+                    $("#val2").val("");
+            }
+            return res;
+        }
+        //-------------------cmdAdd_Onclick()---------------
+        function cmdAdd_onclick() {
+            var v1, v2, rs
+            var v1val, v2val
+            //--------------- Read and validate value 1
+            v1 = $("#val1").val();
+            v1val = Validate(v1, 1)
+            if (v1val == "")
+                return;
+            //-------------- Read and validate value 2
+            v2 = $("#val2").val();
+            v2val = Validate(v2, 2)
+            if (v2val == "")
+                return;
+            rs = v1val + v2val; // do the calculation
+            $("#result").val(rs);
+        }
+        //-------------------------------------------------
+    </script>
+</head>
+<body>
+    <h1> Web Adder with Data Validation </h1>
+    <h3> User Defined Functions </h3>
+    <pre>
+    <form>
+ Value1: <input id="val1">
+
+
+ Value2: <input id="val2">
+
+ ----------------------------
+ Result: <input id="result">
+
+    <input type="button" id="cmdAdd" value="+" onclick="cmdAdd_onclick()">
+
+ </form>
+ </pre>
+</body>
+</html>

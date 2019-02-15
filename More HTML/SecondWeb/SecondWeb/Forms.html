@@ -1,0 +1,64 @@
+﻿<!-- Clientsc46.htm -->
+<!-- Example of Forms and Elements Collection -->
+<html>
+<head>
+    <title>Forms and Elements Collection Example</title>
+    <script type="text/javascript">
+        function cmdInfo_OnClick() {
+            var i, j, strInfo;
+            for (i = 0; i <= (document.forms.length - 1); i++) {
+                alert("Form Name: " + document.forms[i].name + " Action: " +
+                    document.forms[i].action);
+                //Report on each element and its value in the form
+                for (j = 0; j <= (document.forms[i].elements.length - 1); j++) {
+                    strInfo = "Form: " + i + " Element Name: " +
+                        document.forms[i].elements[j].name;
+                    strinfo = strinfo + "\n" + " Element Value: " +
+                        document.forms[i].elements[j].attributes("value");
+                    alert(strInfo);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>This page contains some HTML Elements.</h3>
+    <pre>
+    <form name="frmLogin" action="Status.asp">
+ Enter Name: <input name="txtName" value="" size="15">
+
+
+
+ Enter ID: <input name="txtID" value="" size="8">
+
+
+
+    <input type="submit" name="cmdSubmit" value="Check Status" />
+
+
+
+    <input type="reset" value="Reset" />
+
+
+
+ </form>
+    <hr />
+
+
+
+    <form name="frmInfo" action="VisitorInfo.asp">
+ Type of Information Requested : <input name="txtInfo" size="30" />
+
+
+
+ Last Name: <input name="txtLName" size="10" />
+
+    <input type="button" name="cmdInfo" value="Get Info" onclick="cmdInfo_OnClick()" />
+
+
+    <input type="reset" value="Reset" />
+
+ </form>
+ </pre>
+</body>
+</html>

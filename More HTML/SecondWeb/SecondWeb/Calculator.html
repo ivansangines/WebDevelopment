@@ -1,0 +1,200 @@
+﻿<!-- An example of a simple Calculator -->
+<html>
+<head>
+    <title> Simple Calculator </title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var firstNum = "";
+            isFirst = true;
+            isSecond = false;
+            firstTime = true;
+            firstOp = true;
+            notDec = false;
+            isSpecial = false;
+            var operand = "";
+            var secondNum = "";
+            var expresion = "";
+            var result = 0;
+
+            function reset() {
+                firstNum = "";
+                isFirst = true;
+                isSpecial = false;
+                isSecond = false;
+                notDec = false;
+                firstTime = true;
+                firstOp = true;
+                operand = "";
+                secondNum = "";
+                expresion = "";
+                result = 0;
+            }
+
+            $(".calc-btn").on("click", function () {
+
+                if ($(this).attr("data-role") == "number") {  //Checking if it is a number
+                    if (isFirst) {
+                        if (firstTime || firstNum == "0") { //Checking if the first number clicked is 0
+                            firstTime = false;
+                            firstNum = $(this).attr("value");
+                            $("#Display").val(firstNum);
+                        } else {
+                            firstNum = firstNum + $(this).attr("value");
+                            $("#Display").val(firstNum);
+                        }
+                        expresion = $("#Display").val();
+                    }
+                    else {
+                        if (firstTime || secondNum == "0") { //Checking if the first number clicked is 0
+                            firstTime = false;
+                            secondNum = $(this).attr("value");
+                            $("#Display").val(secondNum);
+                            if (secondNum != "0") { expresion += secondNum;}
+
+                        } else {
+                            secondNum = secondNum + $(this).attr("value");
+                            $("#Display").val(secondNum);
+                            expresion += $(this).attr("value");
+
+                        }
+
+                    }
+
+                }
+                else if (($(this).attr("data-role")) == "dec") { // cheking if we will operate with decimals numbers
+                    if (notDec == false) { //cheking if "." has been pressed
+                        notDec = true;
+                        if (isFirst) {
+                            firstTime = false;  //in case we do not set the 0 infront of decimal
+                            firstNum += $(this).attr("value");
+                            $("#Display").val(firstNum);
+                            //expresion = $("#Display").val();
+                        }
+                        else {
+                            firstTime = false;  //in case we do not set the 0 infront of decimal
+                            secondNum += $(this).attr("value");
+                            $("#Display").val(secondNum);
+                            expresion += $(this).attr("value");
+                        }
+                    }                   
+
+                }
+                else {
+                    operand = $(this).attr("value");
+
+                    if (operand == "cos" || operand == "sin" || operand == "tan") { //these operands can be used without firstNum
+                        if (firstNum == "") {
+                            $("#Display").val(operand + "(");
+                            expresion = operand + "(";
+                            isSpecial = true;
+                            isFirst = false;
+                        }
+                        else { //case when we have first number and we try to use sin, cos or tan which is not the proper operator
+                            return;
+                        }
+                    }
+
+                    else if (firstNum != "") { //making sure we have a first number
+                        if (firstOp) { //first time we click an operand
+                            firstOp = false;
+                            notDec = false;
+                            firstTime = true;
+                            isFirst = false;
+                            isSecond = true;
+                            $("#Display").val(operand);
+                            expresion += operand;
+                        }
+                        else { //in case we want to change the operand already selected
+
+                            expresion = expresion.replace(/.$/, operand);
+                            $("#Display").val(operand);
+                        }
+
+                    }
+
+                    else {
+                        return;
+                    }     
+                    
+                }            
+            });
+
+            $(".clear-btn").on("click", function () {
+                $("#Display").val("0");
+                reset();
+
+            });
+
+            $(".calculate-btn").on("click", function () {
+                if (isSpecial) {
+                    var number = "("+$("#Display").val();
+                    expresion = "Math." + operand + number + ")";
+                    result = (eval(expresion)).toFixed(3);
+                    expresion = result.toString();
+                    $("#Display").val(expresion);
+                    reset();
+
+                } else {
+
+                    result = (eval(expresion)).toFixed(3);
+                    expresion = result.toString();
+                    $("#Display").val(expresion);
+                    reset();
+                }
+            });
+
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="5" class="heading">
+                Simple Calculator
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="text" id="Display" placeholder="0" style="background-color:aquamarine" readonly /> </td>
+        </tr>
+
+        <tr>
+            <td><input type="button" class="calc-btn" data-role="number" value="0" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="1" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="2" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:#220000"value="+" /> </td>
+            <td><input type="button" class="clear-btn" style="background-color:#550000" value="C"  /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="calc-btn" data-role="number" value="3" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="4" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="5" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:#553300" value="-" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:#550033" value="sin" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="calc-btn" data-role="number" value="6" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="7" /> </td>
+            <td><input type="button" class="calc-btn" data-role="number" value="8" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:lightyellow" value="*" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:lightpink" value="cos" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="calc-btn" data-role="number" value="9" /> </td>
+            <td><input type="button" class="calc-btn" data-role="dec" style="background-color:#333311" value="." /> </td>
+            <td><input type="button" class="calculate-btn" value="=" style="background-color:green"/> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:#335500" value="/" /> </td>
+            <td><input type="button" class="calc-btn" data-role="operator" style="background-color:#553333" value="tan" /> </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>

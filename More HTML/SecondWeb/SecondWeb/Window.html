@@ -1,0 +1,29 @@
+﻿<!-- Clientsc33aj.htm -->
+<html>
+<head>
+    <title> New Windows in Javascript </title>
+</head>
+<body>
+    <h3> Example of creating new windows in Javascript </h3>
+    <hr />
+    Use the buttons below to test opening and closing windows in JavaScript.
+    <hr />
+    <form name="frmNW">
+        <input type="button" value="Open New Window" onClick="Createwin();">
+        <p>
+            <input type="button" value="Close New Window"
+                   onClick="NewWin.close();">
+        </p>
+        <p>
+            <INPUT TYPE="button" VALUE="Close Main Window"
+                   onClick="window.close();">
+        </p>
+    </form>
+    <script type="text/javascript">
+        function Createwin() {
+            NewWin = window.open('', 'NewWin',
+                'toolbar=no,status=no,width=400,height=300');
+            NewWin.location.href = "http://mango/htmlex/html5.htm";
+        }
+    </script>
+    <hr />

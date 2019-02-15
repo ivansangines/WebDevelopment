@@ -1,0 +1,25 @@
+﻿<!-- JSExColors.htm -->
+<html>
+<head>
+    <title> Javascript Color Table Example </title>
+    <script type="text/javascript">
+ function f1() {
+ s1 = "<Table border='1'> <tr> <th> RGB <th> Color </tr>"
+ color1 = "RGB(255,";
+ for (i = 0; i < 15; i++) {
+ color = color1 + i * 15 + ", 255)";
+ s1 = s1 + "<tr> <td> " + color + "</td>" +
+ "<td bgcolor=" + color + ">" + "</td></tr>";
+ }
+ document.write(s1 + "</table>");
+ }
+    </script>
+</head>
+<body>
+    Some Colors in HTML <br>
+    <script type="text/javascript">
+ f1();
+    </script>
+    You can try displaying other colors.
+</body>
+</html>

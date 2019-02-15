@@ -1,0 +1,52 @@
+﻿<!-- Clientsc11j.html -->
+<html>
+<head>
+    <title> Web Adder </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $('#btnAdd').css({ 'background-color': 'red' });
+            //$('input[name="btnAdd"]').css({'background-color':'red'}); // alsook to select using name
+            $('#btnAdd').click(doAdd); // like delegate
+        });
+        function doAdd() {
+            var n1 = parseFloat($('#txtN1').val());
+            if (isNaN(n1)) {
+                alert('invalid first number');
+                $('#txtRes').val("");
+                $('#txtN1').focus();
+                return;
+            }
+            var n2 = parseFloat($('#txtN2').val());
+            if (isNaN(n2)) {
+                alert('invalid second number');
+                $('#txtRes').val("");
+                $('#txtN2').focus();
+                return;
+            }
+            $('#btnAdd').css({ 'background-color': 'yellow' });
+            var res = (n1 + n2).toFixed(2);
+            
+            $('#txtRes').val(res);
+        }
+    </script>
+</head>
+<body>
+    <h2> Simple Web Adder </h2>
+    <form name="f1">
+        <pre>
+ First Number : <input name="txtN1" id="txtN1" />
+
+ Second Number: <input name="txtN2" id="txtN2" />
+
+ ------------
+ Result : <input name="txtRes" id="txtRes" />
+
+        <input type="button"
+               name="btnAdd" id="btnAdd" value="+" />
+
+ </pre>
+    </form>
+</body>
+</html>

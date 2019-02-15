@@ -1,0 +1,26 @@
+﻿<!-- Clientsc40.htm -->
+<!-- Location Object properties -->
+<html>
+<head>
+    <title> Location properties </title>
+    <script type="text/javascript">
+        function cmdSubmit_OnClick() {
+            var strinfo;
+            strinfo = "document href= " + location.href + "\n";
+            strinfo = strinfo + "Server name= " + location.hostName + "\n";
+            strinfo = strinfo + "Protocol= " + location.protocol + "\n";
+            strinfo = strinfo + "GET string= " + location.search;
+            alert(strinfo);
+        }
+    </script>
+</head>
+<body>
+    <h3> Location object properties </h3>
+    <hr />
+    <form name="frmTest" method="get">
+        Enter ID: <input name="txtID">
+        <input type="submit" name="cmdSubmit" value="SUBMIT"
+               onclick="cmdSubmit_OnClick()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!-- Clientsc37.htm -->
+<!-- Window Open and Navigate Methods -->
+<html>
+<head>
+    <title> Window Open and Navigate Methods </title>
+    <script type="text/javascript">
+        function cmdOpen_OnClick() {
+            window.open("Calculator.html", "NewWindow",
+                "width=400,height=400,top=100,left=100,toolbar=no,status=no,menubar=no");
+        }
+        function cmdNavigate_OnClick() {
+            window.navigate("Calculator.html");
+        }
+    </script>
+</head>
+<body>
+    <h3> Open and Navigate Methods of Window Object </h3>
+    <hr />
+    <form name="frmTest">
+        <input type="button" name="cmdOpen" value="Window.Open Method"
+               onclick="cmdOpen_OnClick()">
+        <input type="button" name="cmdNavigate" value="Window.Navigate Method"
+               onclick="cmdNavigate_OnClick()">
+    </form>
+</body>
+</html>

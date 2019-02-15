@@ -1,0 +1,54 @@
+﻿<!-- Clientsc34j.htm -->
+<!-- An example of a Client-side Javascript F1 OnHelp and OnChange events -->
+<html>
+<head>
+    <title> F1, Onhelp and OnChange Example </title>
+    <script type="text/javascript">
+        function myTrim(myText) {
+            x = myText;
+            while (x.substring(0, 1) == ' ')
+                x = x.substring(1);
+            while (x.substring(x.length - 1, x.length) == ' ')
+                x = x.substring(0, x.length - 1);
+
+            return x
+        }
+        function window_OnHelp() {
+            alert("Enter your User ID and Password, then click on Submit button")
+            window.event.returnvalue = false
+            //if above line is commented, then the browser help
+            //is invoked after the user terminates the alert box
+        }
+        function txtUserID_OnChange() {
+            if (myTrim(frmTest.txtUserID.value) == "")
+                alert("you must not leave UserID blank")
+            else
+                alert("You enetered UserID = " + frmTest.txtUserID.value)
+
+        }
+    </script>
+</head>
+<body onhelp="window_OnHelp()">
+    <h3> OnHelp and OnChange Example </h3>
+    <br />
+    <hr />
+    <form id="frmTest">
+        <pre>
+ Enter UserID : <input name="txtUserID" onchange="txtUserID_OnChange()" value="">
+
+
+
+ Enter Password : <input name="txtPassword" type="password" value="">
+
+
+
+        <input type="submit" name="cmdSubmit" value="SUBMIT ID and
+Password">
+
+
+
+ </pre>
+    </form>
+    <hr />
+</body>
+</html>

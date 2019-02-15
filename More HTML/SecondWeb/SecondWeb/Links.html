@@ -1,0 +1,32 @@
+﻿<!-- Clientsc45.htm -->
+<!-- Example of Links Collection - Error handling -->
+<html>
+<head>
+    <title>Links Collection Example</title>
+    <h1>This page contains some popular Web links.</h1>
+    <hr />
+</head>
+<body text="green" vlink="red" link="yellow" alink="#00FFA0">
+    <h2>This page contains some popular Web links.</h2>
+    <ul>
+        <li><a href="http://www.amazon.com">Amazon Shopping</a></li>
+        <li><a href="http://msdn.microsoft.com/vbasic/">Visual Basic</a></li>
+        <li><a href="http://www.yahoo.com">Yahoo</a></li>
+    </ul>
+    <script type="text/javascript">
+        //On error resume next
+        try {
+            for (i = 0; i < document.links.length - 1; i++)
+                document.writeln("Link Number " + i + " points to " +
+                    document.links(i).href + "<br/>");
+            var lnum = prompt("Choose a link number between 0 and 2 to visit", "");
+            if ((parseInt(lnum) >= 0) && (parseInt(lnum) <= 2))
+                window.navigate(document.links(parseInt(lnum)).href); //parseInt here is necessary
+        }
+        catch (err) {
+            alert("Error #: " + err.number + " Error Description: " +
+                err.description);
+        }
+    </script>
+</body>
+</html>

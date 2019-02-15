@@ -1,0 +1,54 @@
+﻿<!-- Clientsc33j.htm -->
+<!-- An example of a Client-side Javascript code that uses Event bubbling
+ OnMouseover and OnMouseout events, also uses window.status -->
+<html>
+<head>
+    <title> Event bubbling, Mouse over/out and window.status Example </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function cmdTestButton_OnMouseover() {
+            $("#btnTest").val("Test button Ready");
+            window.status = "You are on the test button, Click to see a message Box"
+        }
+        function cmdTestButton_OnMouseout() {
+            $("#btnTest").val("Test Button");
+            window.status = ""
+        }
+        function frmTest_OnClick() {
+            alert("Click event bubbled from a Button to form")
+        }
+        function cmdTestButton_OnClick() {
+            alert("Click on the Test Button")
+        }
+        $("#frmTest").click(function () {
+            alert("Handler for .click() called.");
+        });
+        $(document).ready(function () {
+            $("#frmTest").click(function () { frmTest_OnClick() });
+        });
+        $("#btnTest").mouseover(function () { cmdTestButton_OnMouseover(); });
+        $("#btnTest").mouseout(function () { cmdTestButton_OnMouseout(); });
+    </script>
+</head>
+<body>
+    <h3> Event Bubbling, Window.status, Mouse Over and Mouse Out Example </h3>
+    <h2> Move the Mouse on the Test Button to see it change its caption </h2>
+    <br />
+    <hr />
+    <form id="frmTest"  >
+        
+        <input id="btnTest" type="button" value="Test Button" onclick="cmdTestButton_OnClick()" />
+        <br />
+        <br />
+        <input id="cmdSecondButton" type="button" value="Second Button" />
+    </form>
+    <hr />
+    <br />
+    Form has two buttons in it. If you click on the two button or the form
+    area, you see the Message Box. Note that the click event is written for
+    the form only. The button click results in the event being bubbled from
+    the button element
+    to the form.
+</body>
+</html>

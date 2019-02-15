@@ -1,0 +1,26 @@
+﻿<!-- Clientsc36.htm -->
+<!-- An example of a Client-side VBscript using HTML Attributes -->
+<html>
+<head>
+    <title> HTML attributes to link to Script code </title>
+    <script type="text/javascript">
+        function showStatus() {
+            window.status = "Click this button for a Greeting Message";
+        }
+        function clearStatus() {
+            window.status = "";
+        }
+        function Greetings() {
+            alert("This code invoked via HTML attributes\nHello");
+        }
+    </script>
+</head>
+<body>
+    <h3> HTML attributes to link to Code - Example </h3>
+    <hr />
+    <form name="frmTest">
+        <input type="button" name="cmdTest" value="Code connected via HTML Attributes"
+        onmouseover="showStatus()" onmouseout="clearStatus()" onclick="Greetings()">
+    </form>
+</body>
+</html>

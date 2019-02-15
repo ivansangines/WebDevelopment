@@ -1,0 +1,83 @@
+﻿<!-- Clientsc38aj.htm -->
+<html>
+<head>
+    <title> Layers and JavaScript </title>
+    <script type="text/javascript">
+        function showOrHide(value) { // This function will work on both netscape
+            if (value == 0) { // and Internet explorer
+                if (document.layers) // undefined in Internet explorer
+                    document.layers["layer3"].visibility = 'hide'; // Netscape
+                else
+                    document.all["layer3"].style.visibility = 'hidden'; // IE
+            }
+            else if (value == 1) { // Show the layer
+                if (document.layers) // undefined in Internet explorer
+                    document.layers["layer3"].visibility = 'show'; // Netscape
+                else
+                    document.all["layer3"].style.visibility = 'visible'; // IE
+            }
+        }
+        //---------for hiding/showing layer 4 and 5
+        function Showit(value) { // This function will work on both netscape
+            if (value == 0) { // and Internet explorer
+                if (document.layers) { // undefined in Internet explorer
+                    document.layers["layer5"].visibility = 'hide'; // Netscape
+                    document.layers["layer4"].visibility = 'show';
+                }// Netscape
+                else {
+                    document.all["layer5"].style.visibility = 'hidden'; // IE
+                    document.all["layer4"].style.visibility = 'visible';
+                }// IE
+            }
+            else if (value == 1) { // Show the layer 5
+                if (document.layers) { // undefined in Internet explorer
+                    document.layers["layer5"].visibility = 'show'; // Netscape
+                    // document.layers["layer4"].visibility='hide';// Netscape
+                }
+                else {
+                    document.all["layer5"].style.visibility = 'visible'; // IE
+                    // document.all["layer4"].style.visibility='hidden'; // IE
+                }
+            }
+        }
+        //---------for creating the effect of a menu
+        function SayHi() {
+            alert("Cool just like a menu");
+            Showit(0);
+        }
+    </script>
+</head>
+<body>
+    <h1>Controlling Layers with JavaScript</h1>
+    <form name="form1">
+        <input type="button" value="Show Layer 3" onClick="showOrHide(1);">
+        <input type="button" value="Hide Layer 3" onClick="showOrHide(0);">
+
+    </form>
+    <p>This is a paragraph of normal text, outside all layers.</p>
+    <div ID="layer1" style="position:static; background-color:lightgreen">
+        This is a static layer, positioned like a typical paragraph.
+    </div>
+    <p>This is another non-layer paragraph.</p>
+    <div id="layer2" style="position:absolute; left:400px; top:200px;
+ width:100px; height:200px; background-color:yellow">
+        This is the first layer.
+    </div>
+    <div id="layer3" style="position:absolute; left:35px; top:210px;
+ background-color:orange; width:100px; height:50px; visibility:hidden">
+        This layer is not shown by default, but can be displayed using JavaScript.
+    </div>
+    <div id="layer4" onMouseOver=Showit(1); onMouseOut=Showit(0);
+         style="position:relative; left:200px; top:100px; background-color:lightblue;
+width:200px; height:100px;">
+        This is the last layer. Note that the layers are displayed in the
+        positions we specify, and not necessarily in order.
+    </div>
+    <div id="layer5" onClick="SayHi();" onMouseOver="Showit(1);"
+         onMouseOut="Showit(0);" style="position:relative; left:200px; top:100px;
+background-color:red; width:200px; height:100px; visibility:hidden">
+        Will pop up under layer 4, Move mouse over it and click.
+        Try experimenting by changing the position to absolute
+    </div>
+</body>
+</html>

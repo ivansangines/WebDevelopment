@@ -1,0 +1,22 @@
+﻿<!-- Clientsc39.htm -->
+<!-- Navigator Object properties -->
+<html>
+<head>
+    <title> Navigator properties </title>
+    <script type="text/javascript">
+        function window_OnLoad() {
+            var strinfo;
+            strinfo = "Browser name= " + Navigator.appname + " version" +
+                Navigator.appversion + "\n";
+            strinfo = strinfo + "CPU type= " + navigator.cpuclass + " OS = " +
+                navigator.platform + "\n";
+            strinfo = strinfo + "Cookies Enabled= " + navigator.cookieEnabled;
+            alert(strinfo)
+        }
+    </script>
+</head>
+<body onload="window_OnLoad()">
+    <h3> Navigator object properties </h3>
+    <hr />
+</body>
+</html>

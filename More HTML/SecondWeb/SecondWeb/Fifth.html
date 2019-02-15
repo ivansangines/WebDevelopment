@@ -1,0 +1,43 @@
+﻿<!-- Clientsc5J.htm -->
+<html>
+<head>
+    <title>Client side scripting - Reading Data from Drop Down List Box </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function cmdSubmit_OnClick() {
+            var strFruit;
+            strFruit = $("select option:selected").text() + "\n";
+            alert(" Fruit Choice = " + "\n" + strFruit);
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">
+        Reading Data from the Drop Down List Box
+        Control
+    </h3>
+    <h4 style="text-align:center">
+        (SELECT and OPTION Tags are used to create the
+        List Box)
+    </h4>
+    <hr />
+    <h4> Choose a Fruit </h4>
+    <form>
+        <pre>
+        <select name="ddlFruit" id="ddlFruit">
+        <option value="Orange">Orange</option>
+        <option value="Apple" selected>Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Mango">Mango</option>
+ </select>
+        <hr />
+
+        <input type="button" value="Submit Fruit Choices" id="cmdSubmit"
+               onClick="cmdSubmit_OnClick();">
+
+ </pre>
+    </form>
+</body>
+</html>

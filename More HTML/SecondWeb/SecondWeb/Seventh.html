@@ -1,0 +1,31 @@
+﻿<!-- Clientsc7J.htm -->
+<html>
+<head>
+    <title> Client side scripting - Reading Data from TEXT AREA </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function cmdSubmit_OnClick() {
+            alert(" Text typed in Text Area = " + "\n" + $("#txaComments").val());
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">Reading Data from the Text Area</h3>
+    <h4 style="text-align:center">
+        (Text Area behaves like a multiline Text
+        Box)
+    </h4>
+    <pre>
+ Please provide Some Comments about Our Web Site:
+    <form>
+    <textarea id="txaComments" rows="5" cols="40"></textarea>
+    <hr />
+
+    <input type="button" value="Submit Comments" id="cmdSubmit" onClick="cmdSubmit_OnClick();">
+
+    </form>
+ </pre>
+</body>
+</html>

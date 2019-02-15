@@ -1,0 +1,67 @@
+﻿<!-- Clientsc18J.htm -->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+        
+
+        function validating_OnClick() {
+            var mail = $("#txtEmail").val();
+            if (mail == "" || mail.length == 0 || mail == null)
+                alert("Email field cannot be blank");
+            else
+                cmdSubmit_OnClick();
+
+        }
+       
+        function cmdSubmit_OnClick() {
+            var lcemail, lcComments, lcMsg, lnCount, lcRating;
+            lcemail = $("#txtEmail").val();
+            lcComments = $("#txaComments").val();
+            lcRating = $("#rating input[type='radio']:checked").val();
+            lcMsg = "You rated our web site as: " + lcRating + "." + "\n";
+            lcMsg = lcMsg + "Your E-mail address is " + lcemail.trim();
+            lcMsg = lcMsg + "\nComments:" + lcComments;
+            if ($("#shopagain input[type='radio']:checked").val() == "Yes")
+                lcMsg = lcMsg + "\n" + "You will shop again with us ";
+            if ($("#shopagain input[type='radio']:checked").val() == "May Be")
+                lcMsg = lcMsg + "\n" + "You are not sure if you will shop again with us ";
+            else
+                lcMsg = lcMsg + "\n" + "Your shopping experience has been negative";
+            alert(lcMsg);
+            alert("Your comments have been submitted.");
+        }
+    </script>
+    <title> Javascript - User Input Examples</title>
+    <h2>Guest Book</h2>
+    <h4>What do you think of our Web site? Please provide your comments.</h4>
+    <hr />
+</head>
+<body>
+    <form name="frmGuestBook" action="">
+<pre>
+E-mail Address: <input type="email" id="txtEmail" required />
+
+<div id="rating">
+Rating: <input type="radio" name="rating" value="Excellent" checked />Excellent
+        <input type="radio" name="rating" value="Very Good" />Very Good
+        <input type="radio" name="rating" value="Good" />Good
+        <input type="radio" name="rating" value="Fair" />Fair
+        <input type="radio" name="rating" value="Poor" />Poor
+</div>
+<strong>General Comments</strong>
+<textarea id="txaComments" rows="5" cols="80"></textarea>
+        <strong>Would you shop again with us:</strong>
+        <div id="shopagain">
+            <input type="radio" name="shopagain" checked value="Yes"> YES
+            <input type="radio" name="shopagain" value="No"> NO
+            <input type="radio" name="shopagain" value="May Be"> May Be
+        </div>
+</pre>
+        <input type="button" value="Submit Comments" onClick="validating_OnClick();">
+        <input type="reset">
+    </form>
+</body>
+</html>

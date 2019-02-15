@@ -1,0 +1,60 @@
+﻿<!-- Clientsc32j.htm -->
+<html>
+<head>
+    <!-- Addition of OnKeydown event handler -->
+    <title> Feedbackk on Your Shopping Experience with WebShop.com </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function window_OnLoad() {
+            $("#txtEmail").focus();
+        }
+        function txtEmail_OnBlur() {
+            var strEmail;
+            strEmail = $("#txtEmail").val();
+            if (strEmail == "") {
+                alert("You must not leave E-mail blank");
+                $("#txtEmail").focus();
+            }
+        }
+        function txtEmail_onkeydown() {
+            if (window.event.keyCode == 13) {
+                $("#txaComments").focus();
+                window.event.returnValue = false;
+            }
+        }
+        $(window).load(function () { window_OnLoad(); });
+        
+    </script>
+</head>
+<body>
+    <h2> Feedback on Your Shopping Experience with WebShop.com </h2>
+    <form name="frmFeedback" method="get" action="">
+        <pre>
+        <strong>E-mail Address:</strong> <input id="txtEmail" size="35" maxlength="35" value="" 
+                                                 onkeydown="txtEmail_onkeydown();" onBlur="txtEmail_OnBlur();">
+
+
+
+        <strong>Your shopping Experience with WebShop.com has been:</strong>
+
+        <strong>Would you shop again with us:</strong>
+<div id="shopagain">
+
+        <input type="radio" name="shopagain" checked value="Yes"> YES
+        <input type="radio" name="shopagain" value="No"> NO
+ </div>
+        <strong>General Comments</strong>
+        <textarea id="txaComments" rows="5" cols="80"></textarea>
+        <input type="button" value="Submit Comments" onClick="cmdSubmit_OnClick();">
+
+
+
+<input type="reset">
+
+
+
+ </pre>
+    </form>
+</body>
+</html>

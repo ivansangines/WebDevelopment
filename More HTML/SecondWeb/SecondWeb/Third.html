@@ -1,0 +1,44 @@
+﻿<!-- Clientsc3J.htm -->
+<html>
+<head>
+    <title> Client side Javascript-Reading Data from Check Boxes </title>
+
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+        function ReadCheckBoxes() {
+            var strChoice
+            strChoice = ""; // initialization is important
+            if ($("#chkSalad").is(":checked"))
+                strChoice = " - Salad" + "\n";
+            if ($("#chkRice").is(":checked"))
+                strChoice = strChoice + " - Rice" + "\n";
+            if ($("#chkFish").is(":checked"))
+                strChoice = strChoice + " - Fish" + "\n";
+            if ($("#chkDsrt").is(":checked"))
+                strChoice = strChoice + " - Dessert" + "\n";
+            alert("Dinner Choices : " + "\n" + strChoice);
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">Using the Check Box INPUT CONTROL</h3>
+    <hr />
+    Check the Items You would like in your Dinner
+    <form>
+        <p><input type="checkbox" id="chkSalad" /> Salad</p>
+        <p><input type="checkbox" id="chkRice" /> Rice</p>
+        <p><input type="checkbox" id="chkFish" /> Fish</p>
+        <p><input type="checkbox" id="chkDsrt" /> Dessert</p>
+
+        <!--<pre>
+        <input type="checkbox" id="chkSalad" /> Salad
+        <input type="checkbox" id="chkRice" /> Rice
+        <input type="checkbox" id="chkFish" /> Fish
+        <input type="checkbox" id="chkDsrt" /> Dessert
+ </pre>-->
+        <input type="button" id="cmdCB" value="Submit Choices"
+               onClick="ReadCheckBoxes();">
+    </form>
+</body>
+</html>

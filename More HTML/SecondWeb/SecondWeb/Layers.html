@@ -1,0 +1,28 @@
+﻿<!-- Clientsc37aj.htm -->
+<html>
+<head>
+    <title> Layers Example</title>
+</head>
+<body>
+    <h2>
+        Example of Layers </H1>
+        <p> This is a paragraph of normal text, outside all layers.</p>
+        <div id="layer1" style="position:static; background-color:yellow">
+            This is a static layer, positioned like a typical paragraph.
+        </div>
+        <p>This is another non-layer paragraph.</p>
+        <div id="layer2" style="position:absolute; left:400px; top:200px; width:100;
+height:200; background-color:lightgreen">
+            This is the first layer.
+        </div>
+        <div id="layer3" style="position:absolute; left:50px; top:200px;
+visibility:hidden">
+            This layer is not shown.
+        </div>
+        <div id="layer4" style="position:relative; left:100px; top:100px; backgroundcolor:lightblue;
+width:200px; height:100px">
+            This is the last layer. Note that the layers are displayed in the
+            positions we specify, and not necessarily in order.
+        </div>
+</body>
+</html>

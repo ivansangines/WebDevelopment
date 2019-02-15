@@ -1,0 +1,67 @@
+﻿<!-- Clientsc4J.htm -->
+<html>
+<head>
+    <title> Client side scripting - Reading Data from Radio Buttons </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function cmdSubmit_OnClick() {
+            var i, strChoice;
+            if ($("#optDinnerItem1").prop("checked"))
+                strChoice = $("#optDinnerItem1").val() + "\n"
+            else if ($("#optDinnerItem2").prop("checked"))
+                strChoice = $("#optDinnerItem2").val() + "\n"
+            else if ($("#optDinnerItem3").prop("checked"))
+                strChoice = $("#optDinnerItem3").val() + "\n"
+
+            if ($("#optDessertItem1").prop("checked"))
+                strChoice = strChoice + $("#optDessertItem1").val() + "\n"
+            else if ($("#optDessertItem2").prop("checked"))
+                strChoice = strChoice + $("#optDessertItem2").val() + "\n"
+            else if ($("#optDessertItem3").prop("checked"))
+                strChoice = strChoice + $("#optDessertItem3").val() + "\n"
+            alert(" Dinner Choices = " + "\n" + strChoice);
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">Using the Radio Button Control</h3>
+    <h4 style="text-align:center">
+        (Also referred to as Option Button
+        sometimes)
+    </h4>
+    <hr />
+    <h4> Choose a main Dinner Item </h4>
+    <form>
+        <pre>
+ Pizza <input type="radio" name="DinnerItem" id="optDinnerItem1"
+              value="Pizza" checked />
+
+ Steak <input type="radio" name="DinnerItem" id="optDinnerItem2"
+              value="Steak" />
+
+ Fish <input type="radio" name="DinnerItem" id="optDinnerItem3" value="Fish" />
+
+        <hr />
+
+        <h4> Choose a Dessert </h4>
+ Chocolate Cake <input type="radio" name="DessertItem" id="optDessertItem1"
+                       value="Chocolate Cake" checked />
+
+
+ Cheese Cake <input type="radio" name="DessertItem" id="optDessertItem2"
+                    value="Cheese Cake">
+
+ Icecream Sundae <input type="radio" name="DessertItem" id="optDessertItem3"
+                        value="Icecream Sundae">
+
+        <hr />
+
+        <input type="button" value="Submit Dinner and Dessert Choices"
+               id="cmdSubmit" onClick="cmdSubmit_OnClick();" />
+
+ </pre>
+    </form>
+</body>
+</html>

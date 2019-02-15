@@ -1,0 +1,30 @@
+﻿<!-- Clientsc25BJ.htm -->
+<html>
+<head>
+    <title> scrlloing messages </title>
+    <script type="text/javascript">
+        var msg1 = "This is an important Javascript status bar scrolling message. ";
+        var msg2 = "This is the second scrolling message";
+        var msg3;
+        var spacer = "......";
+        var pos = 0;
+
+        function Scroll(messg) {
+            window.status = messg.substring(pos, messg.length) + spacer + messg.substring(0, pos);
+            pos++;
+            if (pos > messg.length) pos = 0;
+            msg3 = messg;
+            window.setTimeout(Scroll(msg3), 200); // 200 milliseconds per character
+        }
+        Scroll(msg1);
+        
+        
+    </script>
+</head>
+<body>
+    <h1> Example of Scrolling Messages</h1>
+    Messages are being scrolled in the status bar <br />
+    <a href="javascript:Scroll(msg1);"> Click to switch to first message </a> <br />
+    <a href="javascript:Scroll(msg2);"> Click to switch to second message </a>
+</body>
+</html>

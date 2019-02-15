@@ -1,0 +1,46 @@
+﻿<!-- Clientsc6J.htm -->
+<html>
+<head>
+    <title> Client side scripting - Javascript Reading Data from List Box </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script type="text/javascript">
+        function cmdSubmit_OnClick() {
+            var strFruit;
+            strFruit = "";
+            $("select option:selected").each(function () {strFruit = strFruit + $(this).text() + "\n"; });
+            alert("Fruit Choices = " + "\n" + strFruit);
+        }
+        
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">Reading Data from the List Box Control</h3>
+    <h4 style="text-align:center">
+        (Use SIZE attribute to change a drop down to a
+        List Box)
+    </h4>
+    <h4 style="text-align:center">
+        (Use MULTIPLE attribute to allow multiple
+        Selections)
+    </h4>
+    <hr />
+    <h4> Choose one or more Fruits </h4>
+    <form>
+        <pre>
+        <select name="lstFruit" size="4" multiple>
+        <option value="Orange">Orange</option>
+        <option value="Apple" selected>Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Mango">Mango</option>
+</select>
+        <hr />
+
+        <input type="button" value="Submit Fruit Choices" id="cmdSubmit"
+               onClick="cmdSubmit_OnClick();">
+
+ </pre>
+    </form>
+</body>
+</html>

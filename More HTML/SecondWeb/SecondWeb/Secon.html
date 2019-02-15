@@ -1,0 +1,35 @@
+﻿<!-- Clientsc2j.htm -->
+<html>
+<head>
+    <title>
+        Client side Javascript - Password Attribute, Document OnClick Event
+    </title>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+         function documentClick()
+         {
+             alert(" Name Entered = " + $("#txtName").val() + "\n" + " Password Entered= " + $("input[name=txtPassword]").val());
+         }
+    </script>
+</head>
+<body >
+    
+    <h2 style="text-align:center">Client Side Scripting</h2>
+    <h3 style="text-align:center">Password Attribute, Document OnClick Event</h3>
+    <hr />
+    <form>
+        <pre>
+ Name: <input type="text" id="txtName" size="30" maxlength="28"
+              tabindex="1" />
+
+ Password: <input type="password" name="txtPassword" size="10" tabindex="2" />
+
+        <input type="button" value="ENTER Data" name="cmdEnter" onclick="documentClick()">
+                 
+        <input type="reset" name="cmdReset" value="reset">
+
+ </pre>
+    </form>
+    Use TAB key to Set Focus to a Text Box. Then Click Mouse After Entering Data
+</body>
+</html>

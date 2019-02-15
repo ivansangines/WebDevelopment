@@ -1,0 +1,40 @@
+﻿<!-- Clientsc35.htm -->
+<!-- An example of a Client-side VBscript Keypress and Link events -->
+<html>
+<head>
+    <title> Keypress and Link Events Example </title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+        function txtUserID_Onkeydown() {
+            //does not distinguish between lower and upper case keys
+            //however can recognize function, home and arrow keys
+            alert("keydown event= " + window.event.keyCode);
+            if (window.event.keyCode == 113)
+                alert("F2 key pressed")
+        }
+        function txtUserID_Onkeypress() {
+            //receives ASCII code for the key and thus can distinguish between
+            //lower upper case letters
+            alert("keypress event= " + window.event.keyCode)
+        }
+        function myFunction() { alert("you invoked my Function"); }
+
+        $(document).ready(function () {
+            $("#txtUserID").keydown(function () { txtUserID_Onkeydown(); });
+        });
+        $(document).ready(function () {
+            $("#txtUserID").keypress(function () { txtUserID_Onkeypress(); });
+        });
+    </script>
+</head>
+<body>
+    <h3> Keypress and Link Events Example </h3>
+    <hr />
+    <form id="frmTest">
+        Enter UserID : <input id="txtUserID" value="">
+    </form>
+    <hr />
+    <a href="javascript:myFunction()">Link to My Subroutine</a>
+</body>
+</html>
