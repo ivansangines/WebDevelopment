@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MorningBank.Models.ViewsModel.LoanStatus>
+
+@{
+    ViewBag.Title = "LoanStatus";
+}
+
+<h2>LoanStatus</h2>
+
+<table class="table">
+    <tr>
+        @if (User.IsInRole("admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Loanid)
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckingAccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SavingAccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        @if (User.IsInRole("admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Validation)
+            </th>
+        }
+        <th></th>
+        </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @if (User.IsInRole("admin"))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Loanid)
+            </td>
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckingAccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SavingAccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        @if (User.IsInRole("admin"))
+        {
+            <td>
+                <a class="btn btn-default" href="@Url.Action("AcceptLoan","Banking",new {id=item.Loanid, amount=item.Amount,
+                                                          checking=item.CheckingAccountNumber, saving=item.SavingAccountNumber})">Accept</a>               
+                <a class="btn btn-default" href="@Url.Action("DenyLoan","Banking",new {id=item.Loanid, checking=item.CheckingAccountNumber})">Deny</a>
+            </td>
+        }
+    </tr>
+}
+
+</table>
