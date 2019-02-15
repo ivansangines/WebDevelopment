@@ -1,0 +1,62 @@
+﻿@model WizardMVC.Models.CustomerInfo
+@{
+    ViewBag.Title = "Confirm";
+}
+<h2>Please Confirm the following Data</h2>
+<fieldset>
+    <legend>CustomerInfo</legend>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.FirstName):
+            @Html.DisplayFor(model => model.FirstName)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.LastName):
+            @Html.DisplayFor(model => model.LastName)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Email):
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.StreetAddress):
+            @Html.DisplayFor(model => model.StreetAddress)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.City):
+            @Html.DisplayFor(model => model.City)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.State):
+            @Html.DisplayFor(model => model.State)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Telephone):
+            @Html.DisplayFor(model => model.Telephone)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.CellPhone):
+            @Html.DisplayFor(model => model.CellPhone)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.CustomerPin):
+            @Html.DisplayFor(model => model.CustomerPin)
+        </div>
+        <div class="display-label">
+                @Html.DisplayNameFor(model => model.CardNumber):
+                @Html.DisplayFor(model => model.CardNumber)
+        </div>
+        <div class="display-label">
+                @Html.DisplayNameFor(model => model.ExpirationDate):
+                @Html.DisplayFor(model => model.ExpirationDate)
+        </div>
+        @using (Html.BeginForm())
+        {
+            <input type="submit" name="btnPrev" value="Prev" /> @:&nbsp;&nbsp;&nbsp; <input type="submit" name="btnConfirm" value="Confirm" />
+            <div class="form-group">
+                 <div id="lblStatus" class="col-md-offset-2 col-md-10">
+                 @ViewBag.Message
+                 </div>
+            </div>
+            
+        }
+</fieldset>

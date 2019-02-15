@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "FormDataTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>FormDataTest</h2>
+@using (Html.BeginForm())
+{
+    <pre>
+        @Html.Label("fname", "First Name", new { @class = "myLabel" })
+        @Html.TextBox("fname", "", new { @class = "myText" })
+        @Html.Label("lname", "Last Name", new { @class = "myLabel" })
+        @Html.TextBox("lname", "", new { @class = "myText" })
+        @Html.Label("street", "Street", new { @class = "myLabel" })
+        @Html.TextBox("street", "", new { @class = "myText" })
+        @Html.Label("city", "City", new { @class = "myLabel" })
+        @Html.TextBox("city", "", new { @class = "myText" })
+        @Html.Label("state", "State", new { @class = "myLabel" })
+        @Html.TextBox("state", "", new { @class = "myText" })
+
+        <input type="submit" value="Update Data" name="btnUpdate" />
+        
+        <p>@ViewBag.Message</p>
+
+    </pre>
+}

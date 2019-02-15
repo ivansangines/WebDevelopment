@@ -1,0 +1,21 @@
+﻿@model MVCRoutes.Models.UserInfo
+@{
+    ViewBag.Title = "ModelBindingTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>ModelBindingTest</h2>
+<h2>ModelBindingTest - Update User </h2>
+@using (Html.BeginForm())
+{
+<pre>
+ @Html.LabelFor(model => model.FirstName)   @Html.TextBoxFor(model => model.FirstName)
+ @Html.LabelFor(model => model.LastName)    @Html.TextBoxFor(model => model.LastName)
+ @Html.LabelFor(model => model.UserAddress.Street)      @Html.TextBoxFor(model => model.UserAddress.Street)
+ @Html.LabelFor(model => model.UserAddress.City)        @Html.TextBoxFor(model => model.UserAddress.City)
+ @Html.LabelFor(model => model.UserAddress.State)       @Html.TextBoxFor(model => model.UserAddress.State)
+
+    <input type="submit" value="Update Data" name="btnUpdate" />
+
+ @ViewBag.Message
+</pre>
+}
