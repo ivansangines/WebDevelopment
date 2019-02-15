@@ -1,0 +1,34 @@
+﻿@page
+@model StDb2EFRP.Pages.Crs.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Courses</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CourseName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Courses.CreditHours)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Courses.CreditHours)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Courses.CourseNum" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

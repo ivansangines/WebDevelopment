@@ -1,0 +1,42 @@
+﻿@page
+@model StDb2EFRP.Pages.Crs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CreditHours)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Courses) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditHours)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CourseNum">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CourseNum">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CourseNum">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
