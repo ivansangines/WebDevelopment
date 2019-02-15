@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <label for="firstname">First Name: </label>
+    <input type="text" name="firstname" id="firstname" required />
+    <br />
+    <label for="firstname">Phone Number: </label>
+    <input type="text" name="phonenum" id="phonenum" required
+           pattern="^\(\d{3}\) \d{3}-\d{4}$"
+           title="Phone number of form (xxx) xxx-xxxx required" />
+    <br />
+    <br />
+    <br />
+    <p>
+        <label>Core Course: <input type="text" list="core_courses"></label>
+    </p>
+    <p>
+        <label>Elective Course: <input type="text" list="elective_courses"></label>
+    </p>
+
+    <datalist id="elective_courses">
+        <option>CS555-Web Development</option>
+        <option>CS441-Smart Phones Development</option>
+        <option>CS450-Desktop Development with C#</option>
+    </datalist>
+    <datalist id="core_courses">
+        <option>CS501-Advanced Design Patterns</option>
+        <option>CS502-Algorithm Analysis</option>
+        <option>CS503-Operating Systems</option>
+    </datalist>
+
+</body>
+</html>
